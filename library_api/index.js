@@ -20,8 +20,7 @@ app.use(methodOverride());
 
 // isbn lookup and return
 
-
-app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
+app.get(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
     var isbnInput = req.body.isbn;
 
     isbn.resolve(isbnInput, function(err, book) {
