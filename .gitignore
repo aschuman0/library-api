@@ -48,3 +48,4 @@ jspm_packages
 mongo_data/
 endpoint_plan.txt
 data
+.DS_Store
