@@ -81,10 +81,10 @@ Remove a book record from the database by id
     ],
     "pageCount": 256,
     "infoURL": "http://valid.url/with/path",
-    "imageURLs": [
+    "imageURLs": {
         "smThumb": "http://valid.url/to/sm/thumb.jpg",
         "thumb": "http://valid.url/to/thumb.jpg"
-    ]
+    }
 }
 ```
 All feilds required. `infoURL` and `imageURLs` may have `null` values.
