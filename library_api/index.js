@@ -20,21 +20,27 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(methodOverride());
 
 // isbn lookup and return
-
 app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
-    var isbnInput = req.body.isbn;
-
-    isbn.resolve(isbnInput, function(err, book) {
-        if (err) {
-            res.statusCode = 404;
+    if(req.body.isbn) {
+        isbn.resolve(req.body.isbn, function(err, book) {
+            if (err) {
+                res.statusCode = 404;
+                res.send('ISBN ' + req.body.isbn + ' not found.');
+            } else {
+                res.send(book);
+            }
+        });
+    } else {
+        res.statusCode = 400;
+        if(!req.body.isbn) {
+            res.send('Request body must include isbn.');
         } else {
-            res.send(book);
+            res.send('Bad request.');
         }
-    });
+    }
 });
 
 // persistant storage in mongodb
-
 mongoose.connect(dbBaseUrl + '/books');
 
 var bookSchema = mongoose.Schema({
@@ -55,6 +61,7 @@ var bookSchema = mongoose.Schema({
     }
 });
 
+// create crud endpoints
 var Books = app.resource = restful.model('book', bookSchema)
   .methods(['get', 'post', 'put', 'delete']);
 
