@@ -8,9 +8,11 @@ var mongoose = restful.mongoose;
 
 var app = express();
 
-let apiBaseUrl = '/api/v1';
-let dbBaseUrl = 'mongodb://localhost';
- 
+var apiBaseUrl = '/api/v1';
+var dbBaseUrl = 'mongodb://localhost';
+var hostname = 'localhost';
+var port = 3000;
+
 app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -68,4 +70,6 @@ var Books = app.resource = restful.model('book', bookSchema)
 Books.register(app, apiBaseUrl + '/books');
 
 // need callback with info on running
-app.listen(3000);
+app.listen(port, hostname, function(){
+    console.log(`Running on http://${hostname}:${port}`);
+});
