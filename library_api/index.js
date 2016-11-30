@@ -9,6 +9,7 @@ var mongoose = restful.mongoose;
 var app = express();
 
 let apiBaseUrl = '/api/v1';
+let dbBaseUrl = 'mongodb://localhost';
  
 app.use(morgan('dev'));
 
@@ -34,7 +35,7 @@ app.get(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
 
 // persistant storage in mongodb
 
-mongoose.connect("mongodb://localhost/books");
+mongoose.connect(dbBaseUrl + '/books');
 
 var bookSchema = mongoose.Schema({
     title: String,
