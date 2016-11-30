@@ -83,7 +83,7 @@ Remove a book record from the database by id
     "infoURL": "http://valid.url/with/path",
     "imageURLs": [
         "smThumb": "http://valid.url/to/sm/thumb.jpg",
-        "thumb": "http://valid.url/to/sm/thumb.jpg"
+        "thumb": "http://valid.url/to/thumb.jpg"
     ]
 }
 ```
