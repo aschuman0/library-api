@@ -4,14 +4,14 @@ A simple RESTful API for looking up, storing and retreiving book information.
 ## Endpoint Map
 
 ### GET /books
-Get a listing of all book objects with associated ids and all information 
+Get a list of all book objects with associated ids and all information 
 
 ### GET /books/id 
-Get a particular book by id
+Get a particular book object by id
 
 ### POST /books
 
-Add a book to the database. 
+Add a book object to the database. 
 
 Example Request
 
@@ -20,7 +20,7 @@ Example Request
 ```
 
 ### POST /books/isbn_lookup 
-Returns JSON object with book information. Requires isbn to be passed in data
+Returns book object. Requires isbn to be passed in data.
 
 Example Request
 
@@ -65,5 +65,28 @@ Example Request
 ### DELETE /books/:id 
 
 Remove a book record from the database by id
+
+## Book Object
+
+```json
+{
+    "id":"id",
+    "title": "Book Title",
+    "description": "Could be a lot of information about this book, could be a little. Hard to say.",
+    "publishedDate": "2001",
+    "publisher": "Fancy House",
+    "authors" : [
+        "Last, First",
+        "First Middle Last"
+    ],
+    "pageCount": 256,
+    "infoURL": "http://valid.url/with/path",
+    "imageURLs": [
+        "smThumb": "http://valid.url/to/sm/thumb.jpg",
+        "thumb": "http://valid.url/to/sm/thumb.jpg"
+    ]
+}
+```
+All feilds required. `infoURL` and `imageURLs` may have `null` values.
 
 ## TODO
