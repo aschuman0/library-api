@@ -9,6 +9,16 @@ Get a listing of all book objects with associated ids and all information
 ### GET /books/id 
 Get a particular book by id
 
+### POST /books
+
+Add a book to the database. 
+
+Example Request
+
+```json
+{}
+```
+
 ### POST /books/isbn_lookup 
 Returns JSON object with book information. Requires isbn to be passed in data
 
@@ -42,16 +52,6 @@ Example Response
 }
 ```
 Note: This object is _not_ added to the database.
-
-### POST /books
-
-Add a book to the database. 
-
-Example Request
-
-```json
-{}
-```
 
 ### PUT /books/:id 
 Modify a book record by id.
