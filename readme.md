@@ -19,7 +19,7 @@ Example Request
 {}
 ```
 
-### POST /books/isbn_lookup 
+### GET /books/isbn_lookup 
 Returns book object. Requires isbn to be passed in data.
 
 Example Request
@@ -51,7 +51,6 @@ Example Response
   "language": "en"
 }
 ```
-Note: This object is _not_ added to the database.
 
 ### PUT /books/:id 
 Modify a book record by id.
