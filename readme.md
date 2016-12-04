@@ -16,7 +16,23 @@ Add a book object to the database.
 Example Request
 
 ```json
-{}
+{
+  "title": "The Wind-up Bird Chronicle",
+  "description": "Superimposes the collapse of a marriage over the investigation into recovered war memories and a man's search for his own identity",
+  "publishedDate": "1997",
+  "publisher": "Vintage",
+  "authors": [
+    "Haruki Murakami",
+    "Jay Rubin"
+  ],
+  "pageCount": 607,
+  "isbn": "0679775439",
+  "infoUrl": "http://books.google.com/books?id=iTt3WN2U8wwC&dq=isbn:0679775439&hl=&source=gbs_api",
+  "imageUrls": {
+    "smThumb": "http://books.google.com/books/content?id=iTt3WN2U8wwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+    "thumb": "http://books.google.com/books/content?id=iTt3WN2U8wwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+  }
+}
 ```
 
 ### POST /books/isbn_lookup 
