@@ -30,28 +30,6 @@ Example Request
 }
 ```
 
-Example Response
-
-```json
-{
-  "title": "The great fires",
-  "publishedDate": "1995",
-  "authors": [
-    "Gilbert, Jack"
-  ],
-  "description": "poems, 1982-1992",
-  "industryIdentifiers": [],
-  "pageCount": 90,
-  "printType": "BOOK",
-  "categories": [],
-  "imageLinks": {},
-  "previewLink": "https://openlibrary.org/books/OL22931456M/The_great_fires",
-  "infoLink": "https://openlibrary.org/books/OL22931456M/The_great_fires",
-  "publisher": "A.A. Knopf",
-  "language": "en"
-}
-```
-
 ### PUT /books/:id 
 Modify a book record by id.
 
