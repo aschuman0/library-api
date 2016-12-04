@@ -57,6 +57,7 @@ Remove a book record from the database by id
         "First Middle Last"
     ],
     "pageCount": 256,
+    "isbn": 0679747672,
     "infoURL": "http://valid.url/with/path",
     "imageURLs": {
         "smThumb": "http://valid.url/to/sm/thumb.jpg",
