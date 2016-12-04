@@ -6,7 +6,7 @@ A simple RESTful API for looking up, storing and retreiving book information.
 ### GET /books
 Get a list of all book objects with associated ids and all information 
 
-### GET /books/id 
+### GET /books/<id> 
 Get a particular book object by id
 
 ### POST /books
@@ -30,7 +30,7 @@ Example Request
 }
 ```
 
-### PUT /books/:id 
+### PUT /books/<id> 
 Modify a book record by id.
 
 Example Request
@@ -54,7 +54,7 @@ Example Request
 }
 ```
 
-### DELETE /books/:id 
+### DELETE /books/<id> 
 
 Remove a book record from the database by id
 
