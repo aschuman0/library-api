@@ -6,14 +6,14 @@ A simple RESTful API for looking up, storing and retreiving book information.
 ### GET /books
 Get a list of all book objects with associated ids and all information 
 
-### GET /books/<id> 
+### GET /books/id
 Get a particular book object by id
 
 ### POST /books
 
 Add a book object to the database. 
 
-Example Request
+Example Request:
 
 ```json
 {
@@ -38,7 +38,7 @@ Example Request
 ### POST /books/isbn_lookup 
 Returns book object. Requires isbn to be passed in data.
 
-Example Request
+Example Request:
 
 ```json
 {
@@ -46,10 +46,10 @@ Example Request
 }
 ```
 
-### PUT /books/<id> 
+### PUT /books/id 
 Modify a book record by id.
 
-Example Request
+Example Request:
 
 ```json
 {
@@ -70,9 +70,9 @@ Example Request
 }
 ```
 
-### DELETE /books/<id> 
+### DELETE /books/id 
 
-Remove a book record from the database by id
+Remove a book record from the database by id.
 
 ## Book Object
 
@@ -95,6 +95,6 @@ Remove a book record from the database by id
     }
 }
 ```
-All feilds required. `infoURL` and `imageURLs` may have `null` values.
+All feilds required but may have `null` values.
 
 ## TODO
