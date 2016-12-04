@@ -4,6 +4,7 @@ var methodOverride = require('method-override');
 var morgan = require('morgan');
 var restful = require('node-restful');
 var isbn = require('node-isbn');
+var assert = require('assert');
 var mongoose = restful.mongoose;
 
 var app = express();
@@ -43,7 +44,10 @@ app.get(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
 });
 
 // persistant storage in mongodb
-mongoose.connect(dbBaseUrl + '/books');
+mongoose.connect(dbBaseUrl + '/books'), function(err, db) {
+    assert.equal(null, err);
+    console.log('Connected to database without error.')
+};
 
 var bookSchema = mongoose.Schema({
     title: String,
