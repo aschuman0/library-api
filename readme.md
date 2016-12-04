@@ -26,7 +26,7 @@ Example Request
 
 ```json
 {
-    "isbn": "0679747672"
+    "isbn": "978-0375701351"
 }
 ```
 
@@ -36,7 +36,22 @@ Modify a book record by id.
 Example Request
 
 ```json
-{}
+{
+  "title": "The Mercy",
+  "description": "poems",
+  "publishedDate": "1999",
+  "publisher": "Alfred A. Knopf",
+  "authors": [
+    "Philip Levine"
+  ],
+  "pageCount": 81,
+  "isbn": "978-0375701351",
+  "infoUrl": "https://openlibrary.org/books/OL381084M/The_mercy",
+  "imageUrls": {
+    "smThumb": "https://covers.openlibrary.org/b/id/228300-S.jpg",
+    "thumb": "https://covers.openlibrary.org/b/id/228300-S.jpg"
+  }
+}
 ```
 
 ### DELETE /books/:id 
@@ -47,7 +62,6 @@ Remove a book record from the database by id
 
 ```json
 {
-    "id":"id",
     "title": "Book Title",
     "description": "Could be a lot of information about this book, could be a little. Hard to say.",
     "publishedDate": "2001",
