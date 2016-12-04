@@ -19,7 +19,7 @@ Example Request
 {}
 ```
 
-### GET /books/isbn_lookup 
+### POST /books/isbn_lookup 
 Returns book object. Requires isbn to be passed in data.
 
 Example Request
