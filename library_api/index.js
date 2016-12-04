@@ -23,7 +23,7 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(methodOverride());
 
 // isbn lookup and return
-app.get(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
+app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
     if(req.body.isbn) {
         isbn.resolve(req.body.isbn, function(err, book) {
             if (err) {
