@@ -23,6 +23,82 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(methodOverride());
 
 // isbn lookup and return
+function formatIsbnReturn(bookFromIsbn, inputIsbn) {
+    assert(!null, bookFromIsbn, 'invalid book object.');
+
+    if(bookFromIsbn.title) {
+        var title = bookFromIsbn.title;
+    } else {
+        var title = null;
+    }
+
+    if(bookFromIsbn.description) {
+        var description = bookFromIsbn.description;
+    } else {
+        var description = null;
+    }
+
+    if(bookFromIsbn.publishedDate) {
+        var publishedDate = bookFromIsbn.publishedDate;
+    } else {
+        var publishedDate = null;
+    }
+
+    if(bookFromIsbn.publisher) {
+        var publisher = bookFromIsbn.publisher;
+    } else {
+        var publisher = null;
+    }
+
+    if(bookFromIsbn.authors) {
+        var authors = bookFromIsbn.authors;
+    } else {
+        var authors = null;
+    }
+
+    if(bookFromIsbn.pageCount) {
+        var pageCount = bookFromIsbn.pageCount;
+    } else {
+        var pageCount = null;
+    }
+
+    var isbn = inputIsbn;
+
+    if(bookFromIsbn.infoLink) {
+        var infoUrl = bookFromIsbn.infoLink;
+    } else {
+        var infoUrl = null;
+    }
+
+    if(bookFromIsbn.imageLinks.smallThumbnail) {
+        var smallThumbUrl = bookFromIsbn.imageLinks.smallThumbnail;
+    } else {
+        var smallThumbUrl = null;
+    }
+
+    if(bookFromIsbn.imageLinks.thumbnail) {
+        var thumbUrl = bookFromIsbn.imageLinks.thumbnail;
+    } else {
+        var thumbUrl = null;
+    }
+
+    var bookReturn = {
+        'title': title,
+        'description': description,
+        'publishedDate': publishedDate,
+        'publisher': publisher,
+        'authors': authors,
+        'pageCount': pageCount,
+        'isbn': isbn,
+        'infoUrl': infoUrl,
+        'imageUrls': {
+            'smThumb': smallThumbUrl,
+            'thumb': thumbUrl
+        }
+    }
+    return bookReturn;
+}
+
 app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
     if(req.body.isbn) {
         isbn.resolve(req.body.isbn, function(err, book) {
@@ -30,7 +106,7 @@ app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
                 res.statusCode = 404;
                 res.send('ISBN ' + req.body.isbn + ' not found.');
             } else {
-                res.send(book);
+                res.send(formatIsbnReturn(book, req.body.isbn));
             }
         });
     } else {
@@ -44,10 +120,10 @@ app.post(apiBaseUrl + '/books/isbn_lookup/', function(req, res) {
 });
 
 // persistant storage in mongodb
-mongoose.connect(dbBaseUrl + '/books'), function(err, db) {
+mongoose.connect(dbBaseUrl + '/books', function(err, db) {
     assert.equal(null, err);
     console.log('Connected to database without error.')
-};
+});
 
 var bookSchema = mongoose.Schema({
     title: String,
