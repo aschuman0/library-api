@@ -1,15 +1,29 @@
 {
-  "name": "library_api",
-  "version": "1.0.0",
-  "description": "restful api for catlogging collection of books",
+  "name": "library-api",
+  "version": "0.1.0",
+  "description": "mongo-backed restful api for collecing home library",
   "main": "index.js",
-  "dependencies": {
-    "node-isbn": "^1.2.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aschuman0/library-api.git"
+  },
+  "author": "aaron schuman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aschuman0/library-api/issues"
+  },
+  "homepage": "https://github.com/aschuman0/library-api#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.4",
+    "morgan": "^1.7.0",
+    "node-isbn": "^1.2.0",
+    "node-restful": "^0.2.5"
+  }
 }
